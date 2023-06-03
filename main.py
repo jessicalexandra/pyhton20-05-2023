@@ -1,6 +1,8 @@
 from data.apartamentos import apartamento1,apartamento2
 import pandas as pd
 from helpers.crearTablasHTML import crearTabla
+from helpers.crearBarras import graficarPromedioSalarial
+from helpers.creartorta import calcularPromedioSalarioPorEdad
 
 #crear el dataframe
 
@@ -15,7 +17,7 @@ print(tabla3)
 #efectuando filtros con python
 #1 necisto definir una condicion logica
 
-empleadosJovenesAnalistas1=tabla3.query('edad<28 and cargo=="analista1"')
+empleadosJovenesAnalistas1=tabla3.query('cargo=="analista1"')
 empladosSalariosBajo=tabla3.query('salario<5000000 and cargo=="analista2"')
 empleadosADespedir=tabla3.query('edad>=50 ')
 
@@ -33,4 +35,11 @@ empleadosADespedir=tabla3.query('edad>=50 ')
 crearTabla(empleadosJovenesAnalistas1,"tablaJovenes")
 crearTabla(empladosSalariosBajo,"tablaBajoSalario")
 crearTabla(empleadosADespedir,"tablaoportunidaddemejora")
+
+#generar graficas
+
+graficarPromedioSalarial(empleadosADespedir,'cargo','salario','graficajubilados')
+
+calcularPromedioSalarioPorEdad(empleadosJovenesAnalistas1,[20,30,40,50,60],'edad','salario','graficadetortaanalista1')
+
 

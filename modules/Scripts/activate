@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\204\Documents\Analisis2\modules"
+VIRTUAL_ENV="C:\Users\509\Documents\pyhton20-05-2023\modules"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
